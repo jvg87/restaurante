@@ -1,6 +1,7 @@
 import styles from '../styles/page.module.scss';
 import { laila } from './fonts';
 import { Input } from '@/components/ui/Input';
+import { Button } from '@/components/ui/Butotn';
 
 export default function Home() {
   return (
@@ -16,8 +17,18 @@ export default function Home() {
             type='text'  
           />
           <Input
+            placeholder='Sua senha'
             type='password'
           />
+          <Button
+            type='submit'
+            loading={false}
+          >
+            Acessar
+          </Button>
+            
+          
+
         </form>
       </div>
     </main>
