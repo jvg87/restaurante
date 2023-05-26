@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useContext } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 
 import styles from '../styles/page.module.scss';
 import { laila } from './fonts';
@@ -12,16 +12,20 @@ import { AuthContext } from '@/contexts/AuthContext';
 
 export default function Home() {
   const { signIn } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [loading, setLoading] = useState(false);
 
   async function handleLogin(e:FormEvent) {
     e.preventDefault();
 
     let data = {
-      email: 'algum@teste.com',
-      password: '123123'
+      email,
+      password
     }
 
-    await signIn(data)
+    await signIn(data);
   }
 
   return (
@@ -35,10 +39,14 @@ export default function Home() {
           <Input 
             placeholder='Digite seu email'
             type='text'  
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             placeholder='Sua senha'
             type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Button
             type='submit'
