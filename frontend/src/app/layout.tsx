@@ -1,5 +1,6 @@
 import '../styles/global.scss';
 import { lato } from './fonts';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 export const metadata = {
   title: 'FoodHouse - Faça Seu login',
@@ -12,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={lato.className}>{children}</body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body className={lato.className}>{children}</body>
+      </html>
+    </AuthProvider>
+    
   )
 }
