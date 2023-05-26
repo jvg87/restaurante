@@ -7,11 +7,14 @@
 
 :root{
 
-  --white: #fff;
+
+  --white: #fcfcfc;
   --black: #000;
 
-  --dark-900: #101026;
-  --dark-700: #1d1d2e;
+  --dark-900: #13181d;
+  --dark-700: #414a58;
+
+  --gold: #d8c79f;
 
   --gray-100: #8a8a8a;
   --green-900: #3fffa3;
@@ -32,9 +35,6 @@ body{
   background-color: var(--dark-700);
 }
 
-:is(body, input, textarea, select, button){
-  font: 400 1rem sans-serif;
-}
 
 @media screen and (max-width: 720px) {
   html{
