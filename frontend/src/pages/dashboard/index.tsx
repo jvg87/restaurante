@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { canSSrAuth } from "@/utils/canSSRAuth";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 import Head from "next/head";
 
 function dashboard() {
@@ -18,7 +18,7 @@ function dashboard() {
 
 export default dashboard;
 
-export const getServerSideProps = canSSrAuth(async (ctx) => {
+export const getServerSideProps = canSSRAuth(async (ctx) => {
 
   return {
     props: {}
