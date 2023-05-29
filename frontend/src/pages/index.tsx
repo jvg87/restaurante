@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
 import { AuthContext } from '@/contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 import { Laila, Lato } from 'next/font/google';
 
@@ -26,12 +27,21 @@ export default function Home() {
   async function handleLogin(e:FormEvent) {
     e.preventDefault();
 
+    if (email === '' || password === ''){
+      toast.error('Preencha todos os campos!');      
+      return;
+    }
+
+    setLoading(true);
+
     let data = {
       email,
       password
     }
 
     await signIn(data);
+
+    setLoading(false);
   }
 
   return (
@@ -62,7 +72,7 @@ export default function Home() {
             />
             <Button
               type='submit'
-              loading={false}
+              loading={loading}
             >
               Acessar
             </Button>
