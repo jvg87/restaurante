@@ -3,12 +3,29 @@ import Head from 'next/head';
 import styles from './styles.module.scss';
 import { Header } from '../../components/Header';
 
+import { setupAPIClient } from '@/services/api';
+import { toast } from 'react-toastify';
+
+import { canSSrAuth } from '@/utils/canSSRAuth';
+
 export default function Category(){
   const [name, setName] = useState('');
 
   async function handleRegister(e: FormEvent){
     e.preventDefault();
-    alert('teste ' + name)
+
+    if (name === ''){
+      return
+    }
+
+    const apiClient = setupAPIClient();
+    await apiClient.post('/category', {
+      name: name
+    })
+
+    toast.success('Categoria cadastrada com sucesso!');
+    setName('');
+
   }
 
   return (
@@ -39,3 +56,9 @@ export default function Category(){
     </>
   )
 }
+
+export const getServerSideProps = canSSrAuth(async (ctx) => {
+  return {
+    props: {}
+  }
+})
