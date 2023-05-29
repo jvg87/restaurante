@@ -1,8 +1,18 @@
+import { Header } from "@/components/Header";
 import { canSSrAuth } from "@/utils/canSSRAuth";
+import Head from "next/head";
 
 function dashboard() {
   return (  
-    <h1>Bem vindo ao painel de controle!!</h1>
+    <>
+      <Head>
+        <title>FoodHouse - Painel</title>
+      </Head>
+      <div>
+        <Header/>
+        <h1>Painel</h1>
+      </div>
+    </>
   );
 }
 
