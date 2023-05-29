@@ -2,6 +2,7 @@ import { FormEvent, useContext, useState } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link'
+import { GetServerSideProps } from 'next';
 
 import styles from '@/styles/home.module.scss';
 
@@ -12,6 +13,7 @@ import { AuthContext } from '@/contexts/AuthContext';
 import { toast } from 'react-toastify';
 
 import { Laila, Lato } from 'next/font/google';
+import { canSSRGuest } from '@/utils/canSSRGuest';
 
 const laila = Laila({ weight:['300', '400', '500', '600', '700'], subsets: ['latin'] });
 const lato = Lato({ weight:['100','300','400', '700', '900'], subsets: ['latin'] });
@@ -87,5 +89,13 @@ export default function Home() {
     </>
   )
 }
+
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  
+  return {
+    props: {}
+  }
+})
 
 
