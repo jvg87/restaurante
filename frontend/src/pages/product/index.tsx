@@ -10,6 +10,10 @@ import { Header } from '@/components/Header';
 import { FiUpload } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
+import { Laila } from 'next/font/google';
+
+const laila = Laila({ weight:['300', '400', '500', '600', '700'], subsets: ['latin'] });
+
 type ItemProps = {
   id: string;
   name: string;
@@ -97,7 +101,7 @@ export default function Product({ categoryList }: CategoryProps ){
       </Head>
       <div>
         <Header/>
-        <main className={styles.container}>
+      <main className={`${styles.container} ${laila.className}`}>
           <h1>Novo Produto</h1>
 
           <form className={styles.form} onSubmit={handleRegister}>

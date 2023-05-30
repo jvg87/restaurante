@@ -14,10 +14,10 @@ export function Header() {
   const { signOut } = useContext(AuthContext);
 
   return (  
-    <header className={styles.header_container}>
+    <header className={`${styles.header_container} ${laila.className}`}>
       <div className={styles.header_content}>
         <Link href='/dashboard'>
-          <h1 className={laila.className}>
+          <h1>
             <span>Food</span>
             House
           </h1>

@@ -3,6 +3,9 @@ import styles from './styles.module.scss';
 
 import { FaSpinner } from 'react-icons/fa';
 
+import { Laila } from 'next/font/google';
+const laila = Laila({ weight:['600'], subsets: ['latin'] });
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   loading?: boolean,
   children: ReactNode
@@ -11,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 export function Button({loading, children, ...props} :ButtonProps){
   return (
     <button
-      className={styles.button}
+      className={`${styles.button} ${laila.className}`}
       disabled={loading}
       {...props}
     >

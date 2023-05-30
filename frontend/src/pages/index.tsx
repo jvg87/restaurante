@@ -12,11 +12,11 @@ import { Button } from '@/components/ui/Button';
 import { AuthContext } from '@/contexts/AuthContext';
 import { toast } from 'react-toastify';
 
-import { Laila, Lato } from 'next/font/google';
 import { canSSRGuest } from '@/utils/canSSRGuest';
 
+import { Laila } from 'next/font/google';
+
 const laila = Laila({ weight:['300', '400', '500', '600', '700'], subsets: ['latin'] });
-const lato = Lato({ weight:['100','300','400', '700', '900'], subsets: ['latin'] });
 
 
 export default function Home() {
@@ -53,8 +53,8 @@ export default function Home() {
         <meta name="description" content='Restaurant WebPage' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className={`${styles.container_center} ${lato.className}`}>
-        <h1 className={laila.className}>
+      <main className={`${styles.container_center} ${laila.className}`}>
+        <h1>
           <span>Food</span>
           House
         </h1>

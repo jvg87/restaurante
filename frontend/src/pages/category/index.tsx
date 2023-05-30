@@ -8,6 +8,10 @@ import { setupAPIClient } from '@/services/api';
 
 import { toast } from 'react-toastify';
 
+import { Laila } from 'next/font/google';
+
+const laila = Laila({ weight:['300', '400', '500', '600', '700'], subsets: ['latin'] });
+
 
 export default function Category(){
   const [name, setName] = useState('');
@@ -36,7 +40,7 @@ export default function Category(){
       </Head>
       <div>
         <Header/>
-        <main className={styles.container}>
+        <main className={`${styles.container} ${laila.className}`}>
           <h1>Cadastrar Categorias</h1>
 
           <form className={styles.form} onSubmit={handleRegister}>
