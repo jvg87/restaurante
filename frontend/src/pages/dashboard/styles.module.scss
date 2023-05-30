@@ -25,6 +25,8 @@
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+  border: 1px solid var(--gold);
+  border-radius: .5rem;
 }
 
 .order_item{
