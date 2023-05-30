@@ -84,7 +84,7 @@ function dashboard({ orders }: HomeProps) {
     setModalVisible(false);
   }
 
-  async function handleRefreshOrders(params:type) {
+  async function handleRefreshOrders() {
     const apiClient = setupAPIClient();
     const response = await apiClient.get('/orders')
     setOrderList(response.data);
