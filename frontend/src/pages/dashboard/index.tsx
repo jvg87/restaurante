@@ -12,6 +12,7 @@ import Modal from 'react-modal';
 
 import { Laila } from 'next/font/google';
 import { ModalOrder } from '@/components/ModalOrder';
+import { spawn } from 'child_process';
 
 const laila = Laila({ weight:['300', '400', '500', '600', '700'], subsets: ['latin'] });
 
@@ -72,6 +73,23 @@ function dashboard({ orders }: HomeProps) {
 
   }
 
+  async function handleFinishOrder(id: string){
+    const apiClient = setupAPIClient();
+    await apiClient.put('/order/finish', {
+      order_id: id
+    })
+
+    const response = await apiClient.get('/orders');
+    setOrderList(response.data);
+    setModalVisible(false);
+  }
+
+  async function handleRefreshOrders(params:type) {
+    const apiClient = setupAPIClient();
+    const response = await apiClient.get('/orders')
+    setOrderList(response.data);
+  }
+
   Modal.setAppElement('#__next');
   
   return (  
@@ -85,12 +103,18 @@ function dashboard({ orders }: HomeProps) {
         <main className={`${styles.container} ${laila.className}`}>
           <div className={styles.container_header}>
             <h1>Últimos Pedidos</h1>
-            <button>
+            <button onClick={handleRefreshOrders}>
               <FiRefreshCcw color="#d8c79f" size={25}/>
             </button>
           </div>
 
           <article className={styles.list_orders}>
+
+            {orderList.length === 0 && (
+              <span className={styles.empty_list}>
+                Nenhum pedido aberto foi encontrado...
+              </span>
+            )}
 
             {orderList.map((item)=> (
               <section key={item.id} className={styles.order_item}>
@@ -110,6 +134,7 @@ function dashboard({ orders }: HomeProps) {
             isOpen={modalVisible}
             onRequestClose={handleCloseModal}
             order={modalItem}
+            handleFinishOrder={handleFinishOrder}
           />
         )}
 

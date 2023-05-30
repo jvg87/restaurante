@@ -10,10 +10,11 @@ const laila = Laila({ weight:['600'], subsets: ['latin'] });
 interface ModalOrderProps{
   isOpen: boolean;
   onRequestClose: () => void;
-  order: OrderItemProps[]
+  order: OrderItemProps[];
+  handleFinishOrder: (id: string) => void; 
 }
 
-export function ModalOrder({ isOpen, onRequestClose, order }: ModalOrderProps){
+export function ModalOrder({ isOpen, onRequestClose, order, handleFinishOrder }: ModalOrderProps){
 
   const customStyles = {
     content: {
@@ -25,8 +26,6 @@ export function ModalOrder({ isOpen, onRequestClose, order }: ModalOrderProps){
       transform: 'translate(-50%, -50%)',
       backgroundColor: '#13181d',
       borderRadius: '.5rem',
-      // border: '1px solid #d8c79f'
-
     }
   };
 
@@ -36,35 +35,29 @@ export function ModalOrder({ isOpen, onRequestClose, order }: ModalOrderProps){
       onRequestClose={onRequestClose}
       style={customStyles}
     >
-
       <button
         type='button'
         onClick={onRequestClose}
         className='react-modal-close'
         style={{ background: 'transparent', border: 0 }}
       >
-        <FiX size={30} color='#d8c79f'/>
+        <FiX size={35} color='#d8c79f'/>
       </button>
-
       <div className={`${styles.container} ${laila.className}`}>
         <h2>Detalhes do pedido</h2>
         <span className={styles.table}>
           Mesa: <strong>{order[0].order.table}</strong>
         </span>
-
         {order.map( item => (
           <section key={item.id} className={styles.container_item}>
             <span>{item.amount} - <strong>{item.product.name}</strong></span>
             <span className={styles.description}>{item.product.description}</span>
           </section>
         ))}
-
-        <button className={styles.btn_order} onClick={ () => {}}>
+        <button className={styles.btn_order} onClick={ () => handleFinishOrder(order[0].order_id)}>
           Concluir Pedido
         </button>
-
       </div>
-
     </Modal>
   )
 }
