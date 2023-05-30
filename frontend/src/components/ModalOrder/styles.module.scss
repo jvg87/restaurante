@@ -1,2 +1,52 @@
+.container{
+  width: 620px;
+  background-color: var(--dark-900);
+  color: var(--white);
 
+  h2{
+    margin: 1rem 0;
+  }
+}
+
+.container_item{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+
+  strong{
+    font-size: 1.1rem;
+    color: var(--gold)
+  }
+}
+
+.description{
+  margin-top: .5rem;
+  word-break: break-all;
+}
+
+.btn_order{
+  margin-top: 1.5rem;
+  background-color: rgba($color: #000000, $alpha: .4);
+  border: 0;
+  padding: .5rem 1rem;
+  border-radius: .3rem;
+  color: var(--white);
+}
+
+.table{
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+@media screen and (max-width: 700px) {
+  .container{
+    width: 430px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container{
+    width: 330px;
+  }
+}
 
