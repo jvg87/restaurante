@@ -11,18 +11,18 @@ export default function SignIn(){
         <TextInput
           placeholder="Digite seu email"
           style={styles.input}
-          placeholderTextColor='#d8c79f75'
+          placeholderTextColor='#8a8a8a'
         />
         <TextInput
           placeholder="Digite sua senha"
           style={styles.input}
-          placeholderTextColor='#d8c79f75'
+          placeholderTextColor='#8a8a8a'
+          secureTextEntry={true}
         />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.button_text}>Acessar</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.button_text}>Acessar</Text>
-      </TouchableOpacity>
-
     </View>
   )
 }
@@ -37,17 +37,18 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 42,
     marginBottom: 18,
-    color: '#fcfcfc',
+    color: '#d8c79f',
   },
   logo_house:{
-    color: '#d8c79f'
+    color: '#fcfcfc'
   },
   input_container: {
     width: '95%',
     alignItems: 'center',
     justifyContent:'center',
     paddingVertical: 34,
-    paddingHorizontal: 14
+    paddingHorizontal: 14,
+    
   },
   input :{
     width: '95%',
@@ -56,19 +57,19 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 4,
     paddingHorizontal: 8,
-    color: '#fcfcfc'
+    color: '#fcfcfc',
   },
   button: {
-    width: '85%',
+    width: '95%',
     height: 40,
     borderRadius: 4,
     alignItems: 'center',
     justifyContent:'center',
-    borderColor: '#fcfcfc'
+    backgroundColor:'#d8c79f'
   },
   button_text:{
     fontSize: 18,
     fontWeight:'bold',
-    color: '#fcfcfc',
+    color: '#13181d',
   }
 })
