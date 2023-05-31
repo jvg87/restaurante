@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "expo": "~48.0.15",
@@ -19,7 +20,10 @@
     "react-native-screens": "~3.20.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.7",
+    "typescript": "^5.0.4"
   },
   "private": true
 }
