@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParamsList } from "../../routes/app.routes";
 
+import { api } from "../../services/api";
+
 export default function Dashboard(){
   const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
   
@@ -16,11 +18,19 @@ export default function Dashboard(){
       return;
     }
 
+    const response = await api.post('/order', {
+      table: Number(number)
+    })
+
+
     //Requisição para abrir mesa
     navigation.navigate('Order', {
       number: number,
-      order_id: ''
+      order_id: response.data.id
     })
+
+    setNumber('');
+
   }
 
   return (
@@ -57,7 +67,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '90%',
-    height: 60,
+    height: 50,
     backgroundColor: '#414a58',
     borderRadius: 4,
     paddingHorizontal: 8,
