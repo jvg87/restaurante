@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 
-import { CategoryProps } from '../../pages/Order';
+import { CategoryProps, ProductProps } from '../../pages/Order';
 
 interface ModalPickerProp {
-  options: CategoryProps[];
+  options: CategoryProps[] | ProductProps[];
   handleCloseModal: () => void;
   selectedItem: (item: CategoryProps) => void;
 }

@@ -73,7 +73,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     textAlign: 'center',
     fontSize: 22,
-    color: '#fcfcfc'
+    color: '#fcfcfc',
+    borderWidth: 0.8,
+    borderColor: '#d8c79f'
   },
   button: {
     width: '90%',

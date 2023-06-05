@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 8,
     color: '#fcfcfc',
+    borderWidth: 1,
+    borderColor: '#d8c79f'
   },
   button: {
     width: '95%',
